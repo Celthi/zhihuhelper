@@ -71,6 +71,7 @@ if __name__ == "__main__":
     myapp = MyApp()
     myapp.show()
     #print(verifycode)
+    #add to test git in pycharm
 
     sys.exit(app.exec_())
 
