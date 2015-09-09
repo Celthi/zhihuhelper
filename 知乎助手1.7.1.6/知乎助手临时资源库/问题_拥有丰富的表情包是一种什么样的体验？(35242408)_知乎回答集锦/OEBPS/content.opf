@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+            <package xmlns="http://www.idpf.org/2007/opf"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            unique-identifier="27149527" version="2.0">
+            <metadata>
+<dc:title>问题_拥有丰富的表情包是一种什么样的体验？(35242408)_知乎回答集锦</dc:title>
+<dc:identifier id='27149527'>27149527</dc:identifier>
+<dc:language>zh-cn</dc:language>
+<dc:creator>ZhihuHelp1.7.0</dc:creator>
+<dc:description>该电子书由知乎助手生成，知乎助手是姚泽源为知友制作的仅供个人使用的简易电子书制作工具，源代码遵循WTFPL，希望大家能认真领会该协议的真谛，为飞面事业做出自己的贡献 XD</dc:description>
+<dc:rights>CC</dc:rights>
+<dc:publisher>ZhihuHelp</dc:publisher>
+</metadata>
+
+            
+          <manifest>
+          <item id="ncx" href="toc.ncx" media-type="text/xml"/>
+          <item id='5' href='images/da8e974dc_b.jpg' media-type="image/jpg"/>
+
+          <item id='2' href='html/index.html' media-type="application/xhtml+xml"/>
+<item id='3' href='html/infoPage.html' media-type="application/xhtml+xml"/>
+<item id='4' href='html/35242408.html' media-type="application/xhtml+xml"/>
+
+          <item id="6" href="markdownStyle.css" media-type="text/css"/>
+<item id="7" href="userDefine.css" media-type="text/css"/>
+
+          </manifest>
+        
+            
+        <spine toc="ncx">
+          <itemref idref="2" linear="no"/>
+<itemref idref="3" linear="yes"/>
+<itemref idref="4" linear="yes"/>
+
+        </spine>
+        
+            
+        <guide>
+          <reference href="./html/index.html" type="toc" title="index.html"/>
+
+        </guide>
+        
+            </package>

@@ -168,6 +168,7 @@ class SettingfromGUI(BaseClass):
         for key in self.setDict:
             setattr(SettingClass, key, self.setDict[key])
         f.close()
+        self.printSetting()
         return
 
     def printSetting(self):

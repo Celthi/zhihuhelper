@@ -63,6 +63,7 @@ class PageWorker(BaseClass, HttpBaseClass, SqlClass):
     def setCookie(self, account=''):
         self.cookieJarInMemory = cookielib.LWPCookieJar()
         if account == '':
+            print('account == 0')
             Var = self.cursor.execute(
                 "select cookieStr, recordDate from LoginRecord order by recordDate desc").fetchone()
         else:

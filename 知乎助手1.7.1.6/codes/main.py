@@ -44,14 +44,16 @@ class ZhihuHelp(BaseClass):
         self.urlPattern['column'] = r'(?<=zhuanlan\.zhihu\.com/)[^/#\n\r]*'
         return
 
-    def helperStart(self):
+    def helperStart(self, login=''):
         # 登陆
-        login = Login(self.conn)
+        #login = Login(self.conn)
         if SettingClass.REMEMBERACCOUNT:
             print   u'检测到有设置文件，是否直接使用之前的设置？(帐号、密码、图片质量、最大线程数)'
             print   u'直接点按回车使用之前设置，敲入任意字符后点按回车进行重新设置'
-            if raw_input() == '':
+            if True: #raw_input() == '':
+                login.login()
                 login.setCookie()
+                print("login")
             else:
                 login.login()
                 SettingClass.MAXTHREAD = self.config.guideOfMaxThread()
