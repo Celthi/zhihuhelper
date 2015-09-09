@@ -12,10 +12,15 @@ extendLibPath = r"./codes"
 sys.path.append(extendLibPath)
 
 from codes.main import *
+
 from codes.connectSignals import *
 
 
+mainClass = ZhihuHelp()
 
+login = Login(mainClass.conn)
+#login.setting.printSetting()
+login.login()
 class MyApp(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self,parent)
@@ -27,6 +32,9 @@ class MyApp(QtGui.QMainWindow):
         self.ui.Login.clicked.connect(self.fileset)
         self.ui.GetVerifycode.clicked.connect(self.GetCaptcha)
         self.ui.verifycode.editingFinished.connect(self.writeCaptcha)
+        #mainClass = ZhihuHelp()
+
+
     def GetCaptcha(self):
         buf = urllib2.urlopen(u'http://www.zhihu.com/captcha.gif')  # 开始拉取验证码
         f = open(u'VerifyCode.gif', 'wb')
@@ -46,10 +54,10 @@ class MyApp(QtGui.QMainWindow):
         with open("verifycode.txt",'w') as fverifycode:
             fverifycode.write(verifycode)
     def fileset(self):
-        ##mytext = self.ui.textEdit.toPlainText()
+        mytext = self.ui.answers.toPlainText()
         ##mylinetext = self.ui.lineEdit.text()
-        ##with open("text.txt",'a') as answer:
-        ##   answer.write(mytext)
+        with open("ReadList.txt",'a') as answer:
+            answer.write(mytext)
         ##  answer.write(mylinetext)
         #self.writeCaptcha()
 
@@ -57,11 +65,11 @@ class MyApp(QtGui.QMainWindow):
 
 
         answers = self.ui.answers.toPlainText()
-        with open("ReadList.txt",'w') as fanswers:
-            fanswers.write(answers)
+        #with open("ReadList.txt",'w') as fanswers:
+         #   fanswers.write(answers)
 
-        mainClass = ZhihuHelp()
-        mainClass.helperStart()
+        #mainClass = ZhihuHelp()
+        mainClass.helperStart(login)
         pass
 
 
