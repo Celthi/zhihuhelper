@@ -5,7 +5,7 @@ import json
 import datetime
 
 from setting import *
-
+#from .. import test_Ui
 
 class Login(BaseClass, HttpBaseClass, SqlClass, CookieBaseClass):
     def __init__(self, conn):
@@ -70,7 +70,7 @@ class Login(BaseClass, HttpBaseClass, SqlClass, CookieBaseClass):
             print u'登陆成功！'
             print u'登陆账号:', account
             print u'请问是否需要记住帐号密码？输入yes记住，输入其它任意字符跳过，回车确认'
-            if raw_input() == 'yes':
+            if True: #raw_input() == 'yes':
                 SettingClass.ACCOUNT = account
                 SettingClass.PASSWORD = password
                 SettingClass.REMEMBERACCOUNT = True
@@ -109,9 +109,14 @@ class Login(BaseClass, HttpBaseClass, SqlClass, CookieBaseClass):
     def login(self):
         self.setting.guide()
         account, password = self.setting.guideOfAccountAndPassword()
+        print("===================")
+        self.setting.printSetting()
         #captcha = ''
-        captcha = self.getCaptcha()
-        while not self.sendMessage(account, password, captcha):
+        #captcha = self.getCaptcha()
+        with open("verifycode.txt",'r') as fverifycode:
+            captcha = fverifycode.read()
+            print(captcha)
+        if not self.sendMessage(account, password, captcha):
             print u'啊哦，登录失败了'
             print u'请问是否需要更换登陆账号？输入『yes』后按回车可以更换账号密码'
             print u'或者猛击回车进入获取验证码的流程'
@@ -120,7 +125,33 @@ class Login(BaseClass, HttpBaseClass, SqlClass, CookieBaseClass):
              #   account, password = self.setting.guideOfAccountAndPassword()
 
 
-            #captcha = self.getCaptcha()
+            #with open("verifycode.txt",'r') as fverifycode:
+                #captcha = fverifycode.read()
+                #print(captcha)
+        #captcha =raw_
+            #MyApp.GetCaptcha()
+            #MyApp.writeCaptcha()
+            #with open("verifycode.txt",'r') as fverifycode:
+                #captcha = fverifycode.read()
+                #print(captcha)
+
+
+
+
+        return
+    def login2(self):
+        self.setting.guide()
+        account, password = self.setting.guideOfAccountAndPassword()
+        #captcha = ''
+        #captcha = self.getCaptcha()
+        with open("verifycode.txt",'r') as fverifycode:
+            captcha = fverifycode.read()
+            print(captcha)
+        while not self.sendMessage(account, password, captcha):
+            print u'啊哦，登录失败了'
+            print u'请问是否需要更换登陆账号？输入『yes』后按回车可以更换账号密码'
+            print u'或者猛击回车进入获取验证码的流程'
+
         return
 
     def saveCookieJar(self):
